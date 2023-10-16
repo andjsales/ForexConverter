@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta https-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forex Converter</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <h1>Forex Converter</h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <hr><br>
+        <form action="/" method="POST" class="converter">
+            Converting from: <input type="text" id="convert-from" name="convert_from"><br><br>
+            Converting to: <input type="text" id="convert-to" name="convert_to"><br><br>
+            Amount: <input type="text" id="amount" name="amount">
+            <br><br><br>
+            <input type="submit" value="Convert">
+        </form>
+        <br>
+        <hr>
+        {% if result_message %}
+        <p>{{ result_message }}</p>
+        {% endif %}
+
+        <p>Supported Currencies:</p>
+        <ul>
+            {% for code, name in supported_currencies.items() %}
+            <li>{{ code }} - {{ name }}</li>
+            {% endfor %}
+        </ul>
+
+    </body>
+
+</html>
