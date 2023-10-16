@@ -20,19 +20,18 @@
             <br><br><br>
             <input type="submit" value="Convert">
         </form>
-        <br>
+        {% if result_message %}
+        <p id="result">{{ result_message }}</p>
+        {% endif %}
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
             {% for message in messages %}
-            <li>{{ message }}</li>
+            <li id="message">{{ message }}</li>
             {% endfor %}
         </ul>
         {% endif %}
         {% endwith %}
-        {% if result_message %}
-        <p id="result">{{ result_message }}</p>
-        {% endif %}
         <br>
         <hr>
         <p>Supported Currencies:</p>
