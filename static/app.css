@@ -1,4 +1,17 @@
+h1,
+#instruction {
+	margin: 2%;
+}
+
 .converter {
+	margin: 20px;
+	padding: 20px;
+	padding-top: 30px;
+	padding-right: 10px;
+	margin-right: 1200px;
+	border-collapse: collapse;
+	border: 4px solid bisque;
+	box-sizing: border-box;
 }
 
 #convert-from {
@@ -8,4 +21,9 @@
 }
 
 #amount {
+}
+
+#result {
+	padding: 20px;
+	margin: 20px;
 }
