@@ -9,16 +9,13 @@ base_url = 'http://api.exchangerate.host/'
 os.environ['API_KEY_ENV_VAR'] = 'daff0b9b4d855f63c2ad3a313e0425d8'
 api_key = os.getenv("API_KEY_ENV_VAR")
 
-print("Fetching supported currencies...")  # Debug statement
 response = requests.get(
     f"http://api.exchangerate.host/list?access_key={api_key}")
 if response.status_code == 200:
     data = response.json()
     supported_currencies = data.get('currencies', {})
-    print(supported_currencies)
 else:
     supported_currencies = {}
-    print("Could not load supported currencies.")
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -51,17 +48,6 @@ def homepage():
         else:
             converted_amount = round(float(data.get('result', 'N/A')), 2)
             result_message = f"{amount} {convert_from} is equivalent to {converted_amount} {convert_to}."
-
-    print("Fetching supported currencies...")  # Debug statement
-    response = requests.get(
-        f"http://api.exchangerate.host/list?access_key={api_key}")
-    if response.status_code == 200:
-        data = response.json()
-        supported_currencies = data.get('currencies', {})
-        print(supported_currencies)
-    else:
-        supported_currencies = {}
-        print("Could not load supported currencies.")
 
     return render_template('index.html', converted_amount=converted_amount, result_message=result_message, supported_currencies=supported_currencies)
 
