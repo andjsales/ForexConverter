@@ -1,3 +1,12 @@
+# Set up
+
+Before running the application, you'll need to set up your API key for the ExchangeRate API.
+
+1. Export the API key as an environment variable:
+   ```bash
+   export API_KEY_ENV_VAR='your_api_key'
+   ```
+
 # Usage
 
 1. Create venv:  
