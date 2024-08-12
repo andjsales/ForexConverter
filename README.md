@@ -1,3 +1,5 @@
+API: https://exchangerate.host/dashboard
+
 # Set up
 
 Before running the application, you'll need to set up your API key for the ExchangeRate API.
