@@ -3,7 +3,7 @@ import os
 import requests
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default_secret_key')
 
 base_url = 'http://api.exchangerate.host/'
 api_key = os.getenv("API_KEY_ENV_VAR")
